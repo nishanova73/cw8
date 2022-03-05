@@ -41,8 +41,12 @@
                      <i class="fas fa-star"></i>
                      {% endfor %}
                  </p>
+            {% if perms.webapp.change_review %}
                 <a href="{% url 'webapp:review_edit' i.pk %}">Edit</a>
+            {% endif %}
+            {% if perms.webapp.delete_review %}
                 <a href="{% url 'webapp:review_delete' i.pk product.id %}">Delete</a>
+            {% endif %}
             {% endfor %}
     </div>
 {% endblock %}
