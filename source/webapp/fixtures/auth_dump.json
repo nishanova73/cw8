@@ -1,10 +1,44 @@
 [
 {
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "moderator",
+    "permissions": [
+      [
+        "add_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "change_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "delete_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "change_review",
+        "webapp",
+        "review"
+      ],
+      [
+        "delete_review",
+        "webapp",
+        "review"
+      ]
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$320000$K0cfLk2SvlSzSaERf0G89A$Mp25swkd7Vb/1vIkJARZgBQ9SzUklY2Pv7EpjVspq/U=",
-    "last_login": "2022-03-05T06:24:20.992Z",
+    "last_login": "2022-03-05T09:44:06.588Z",
     "is_superuser": true,
     "username": "chika",
     "first_name": "",
@@ -13,6 +47,46 @@
     "is_staff": true,
     "is_active": true,
     "date_joined": "2022-03-05T06:24:13.764Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$SKLxWK2lcUvBfaIvh8tbpm$BwnTuHPHR0WOCUXAduY+I+8AEo6SGrD/BqKrFlsQrHI=",
+    "last_login": "2022-03-05T09:43:06.222Z",
+    "is_superuser": false,
+    "username": "chi",
+    "first_name": "",
+    "last_name": "",
+    "email": "chi@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-03-05T09:42:38Z",
+    "groups": [
+      [
+        "moderator"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$bAU8sC0F4pe4m2m8dT8011$RVgM8N+eZsGpm6n8NZLHV3QjG4GQeRZcXhowl7sOMac=",
+    "last_login": "2022-03-05T09:44:22.311Z",
+    "is_superuser": false,
+    "username": "sia",
+    "first_name": "",
+    "last_name": "",
+    "email": "sia@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-03-05T09:43:44Z",
     "groups": [],
     "user_permissions": []
   }

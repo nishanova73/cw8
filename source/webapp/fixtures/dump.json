@@ -5,18 +5,68 @@
     "fields": {
         "name": "milk",
         "category": "other",
-        "description": "wefwvhwefdiuyvgdfuvyfdkuysvhsdfiuvyuisyohifrv",
+        "description": "wefwvhwefdiuyvgdfuvyfdkuysvhsdfiuvyuisyohifrvsdfad",
         "image": "product_images/milk-vector-cartoon-illustration-260nw-1258802947.webp"
     }
 },
 {
+    "model": "webapp.product",
+    "pk": 4,
+    "fields": {
+        "name": "grapes",
+        "category": "fruits",
+        "description": "jdfucasjdhgfgilyergakghufyiuasayifdgkuhusr",
+        "image": "product_images/Unknown.jpeg"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 5,
+    "fields": {
+        "name": "cake",
+        "category": "other",
+        "description": "qwdjncxihdwbiechiuwehudhircwae",
+        "image": "product_images/cake.jpeg"
+    }
+},
+{
     "model": "webapp.review",
-    "pk": 1,
+    "pk": 2,
     "fields": {
         "author": 1,
         "product": 1,
-        "review_text": "very delicious!!!",
+        "review_text": "good!",
+        "grade": 4
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 3,
+    "fields": {
+        "author": 1,
+        "product": 4,
+        "review_text": "very yummy!!!",
         "grade": 5
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 4,
+    "fields": {
+        "author": 1,
+        "product": 5,
+        "review_text": "bad",
+        "grade": 1
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 5,
+    "fields": {
+        "author": 1,
+        "product": 5,
+        "review_text": "fuuadfva",
+        "grade": 3
     }
 }
 ]
