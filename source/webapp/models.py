@@ -36,6 +36,10 @@ class Product(models.Model):
         a, b = modf(mid_grade)
         return a, range(int(b))
 
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+
 
 class Review(models.Model):
     author = models.ForeignKey(User, verbose_name='Author', related_name='review_user', on_delete=models.PROTECT)

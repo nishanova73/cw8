@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for i in allusers %}
+        <div class="container">
+            <p><b>username:</b><a href="{% url 'accounts:detail' i.pk %}">{{ i.username }}</a></p>
+            <p><b>first name:</b>{{ i.first_name }}</p>
+            <p><b>last name:</b>{{ i.last_name }}</p>
+            <p><b>email:</b>{{ i.email }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,8 +1,33 @@
 {% extends 'base.html' %}
-
-{% block title %}Reviewer{% endblock %}
-
+{% load static %}
+{% block title %}Products{% endblock %}
+{% block menu %}{% endblock %}
 {% block content %}
-    <h1>Catalog of products: </h1>
-    {% include 'partial/product_list.html' %}
+    <h1 class="text-center">Reviewer</h1>
+    <div class="container">
+        <div class="row">
+            {% for product in product_list %}
+                <div class="container">
+                    <div class="card card-1 mt-5">
+                        <div class="avatar" style="height: 200px; background-image: {% if product.image %}url({{ product.image.url }}){% else %}url({% static 'blank.png' %}){% endif %}; background-repeat: no-repeat; background-size: contain;"></div>
+                        {#                    <img src="{{ product.photo.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px">#}
+                        <div class="card-body card-content">
+                            <div style="min-height: 75px;"><h5 class="card-title">{{ product.name }}</h5></div>
+                            <div style="min-height: 50px;"><p class="card-text">
+                <div style="min-height: 50px;"><p class="card-text">
+                                Category: {{ product.get_category_display }}</p></div>
+                            {% for i in product.mid_rating.1 %}
+                                <i class="fas fa-star"></i>
+                            {% endfor %}
+                            {% if product.mid_rating.0 %}
+                                <i class="fas fa-star-half"></i>
+                            {% endif %}
+                            <a href="{% url 'webapp:product_view' product.pk %}"
+                               class="btn btn-primary">Open</a>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

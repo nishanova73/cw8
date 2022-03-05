@@ -26,7 +26,7 @@ class ProductView(DetailView):
         print('pk:', self.kwargs['pk'])
         reviews = Review.objects.filter(product_id=self.kwargs['pk'])
         for i in reviews:
-            context['mid_grade'] += i.mark
+            context['mid_grade'] += i.grade
         if len(reviews):
             context['mid_grade'] = '{:.2f}'.format(context['mid_grade'] / len(reviews))
         return context
@@ -60,7 +60,7 @@ class ReviewEdit(View):
         review = Review.objects.get(pk=self.kwargs['pk'])
         if self.request.user == review.author or self.request.user.has_perm('webapp.change_review'):
             form = ReviewForm(instance=review)
-            return render(self.request, 'review_edit.html', {'pk': self.kwargs['pk'], 'form': form})
+            return render(self.request, 'review_update.html', {'pk': self.kwargs['pk'], 'form': form})
         else:
             raise PermissionDenied()
 

@@ -3,7 +3,7 @@
 {% block title %}{{ product.name }}{% endblock %}
 {% block menu %}
     <li class="nav-item active">
-        <a class="nav-link font-italic" href="{% url 'webapp:product_edit' product.pk %}">Update</a>
+        <a class="nav-link font-italic" href="{% url 'webapp:product_update' product.pk %}">Update</a>
     </li>
     <li class="nav-item active">
         <a class="nav-link font-italic text-danger" href="{% url 'webapp:product_delete' product.pk %}">Delete</a>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <p><b>Category:</b> {{ product.get_category_display }}</p>
-        <P><b>Description:</b>{{ product.description }}</P>
+        <p><b>Description:</b>{{ product.description }}</p>
         <p><b>Average grade:</b>{{ mid_grade }}</p>
         {% for i in product.mid_rating.1 %}
             <i class="fas fa-star"></i>
@@ -41,7 +41,7 @@
                      <i class="fas fa-star"></i>
                      {% endfor %}
                  </p>
-                <a href="{% url 'webapp:review_update' i.pk %}">Edit</a>
+                <a href="{% url 'webapp:review_edit' i.pk %}">Edit</a>
                 <a href="{% url 'webapp:review_delete' i.pk product.id %}">Delete</a>
             {% endfor %}
     </div>

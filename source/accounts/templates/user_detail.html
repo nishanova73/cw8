@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ user_obj.username }}{% endblock %}
+{% block menu %}
+    {% if user_obj == request.user %}
+        <li class="nav-item active"><a href="{% url 'accounts:user_update' user_obj.pk %}" class="nav-link">Edit
+            Profile</a></li>
+        <li class="nav-item active"><a href="{% url 'accounts:user_change_password' user_obj.pk %}"
+                                       class="nav-link">Change Password</a></li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="container card-1 mt-2">
+
+        <h1>Personal area</h1>
+        <div class="row">
+            <div class="col-sm-4">
+                {% if user_obj.profile.avatar %}
+                    <img class="avatar" src="{{ user_obj.profile.avatar.url }}" width="250" height="250"
+                         alt="user picture">
+                {% else %}
+                    <img class="avatar" src="{% static 'image/blank.jpg' %}" width="250" height="250"
+                         alt="user picture">
+                {% endif %}
+            </div>
+            <div>
+                <p>Username: {{ user_obj.username }}</p>
+                <p>First Name: {{ user_obj.first_name }}</p>
+                <p>Last name: {{ user_obj.last_name }}</p>
+                <p>Date of birth: {{ user_obj.profile.birth_date|date:'d.m.Y' }}</p>
+                <p>Email: {{ user_obj.email }}</p>
+                <p>About: {{ user_obj.profile.about|default:'(empty)' }}</p>
+            </div>
+
+        </div>
+
+    </div>
+   <div class="container">
+        <div class="card-1">
+
+            {% for i in reviews %}
+                <div style="border: 1px solid darkgray; border-radius: 5px; margin-top: 15px; padding: 15px;">
+                    <p>Text: {{ i.review_text }}</p>
+                    <p>Grade: {{ i.mark }}</p></div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

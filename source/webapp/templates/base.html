@@ -19,7 +19,7 @@
                <li><a href="{% url 'webapp:main_page' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
                     {% if perms.webapp.add_product %}
-                        <li><a href="{% url 'webapp:product_create' %}"> Создайте продукт </a></li>
+                        <li><a href="{% url 'webapp:product_create' %}"> Create product </a></li>
                     {% endif %}
 
                     {% block menu %}{% endblock %}
@@ -27,8 +27,7 @@
                     <li class="menu-right">Hello,<a href="{% url 'accounts:detail' user.pk%}">{{user.username}}</a>!</li>
                 {% else %}
                     <li><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Login</a></li>
-                    <li><a href="{% url 'accounts:create_user' %}?next={{ request.get_full_path }}">SignUp</a></li>
-
+                    <li><a href="{% url 'accounts:register' %}?next={{ request.get_full_path }}">SignUp</a></li>
                 {% endif %}
 
            </ul>
@@ -38,8 +37,5 @@
     <div class="container">
         {% block content %}{% endblock %}
     </div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
 </body>
 </html>
