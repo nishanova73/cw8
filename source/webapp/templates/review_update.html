@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Update review{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Update Review</h1>
+        <form action="{% url 'webapp:review_edit_url' pk=pk %}" method="POST">
+            {% include 'partial/form.html' with button_text='Update' %}
+        </form>
+    </div>
+{% endblock %}
