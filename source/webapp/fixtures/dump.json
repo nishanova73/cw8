@@ -1,0 +1,22 @@
+[
+{
+    "model": "webapp.product",
+    "pk": 1,
+    "fields": {
+        "name": "milk",
+        "category": "other",
+        "description": "wefwvhwefdiuyvgdfuvyfdkuysvhsdfiuvyuisyohifrv",
+        "image": "product_images/milk-vector-cartoon-illustration-260nw-1258802947.webp"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 1,
+    "fields": {
+        "author": 1,
+        "product": 1,
+        "review_text": "very delicious!!!",
+        "grade": 5
+    }
+}
+]
