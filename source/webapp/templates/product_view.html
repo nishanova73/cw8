@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block menu %}
+    <li class="nav-item active">
+        <a class="nav-link font-italic" href="{% url 'webapp:product_edit' product.pk %}">Update</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link font-italic text-danger" href="{% url 'webapp:product_delete' product.pk %}">Delete</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <div class="text-center">
+        <h1>{{ product.name }}</h1>
+        <div class="row">
+            <div class="col col-12 col-sm-10 col-md-8 col-lg-6 m-auto">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'blank.png' %}{% endif %}"
+                     class="img-fluid" alt="{{ product.name }}">
+            </div>
+        </div>
+        <p><b>Category:</b> {{ product.get_category_display }}</p>
+        <P><b>Description:</b>{{ product.description }}</P>
+        <p><b>Average grade:</b>{{ mid_grade }}</p>
+        {% for i in product.mid_rating.1 %}
+            <i class="fas fa-star"></i>
+        {% endfor %}
+        {% if product.mid_rating.0 %}
+            <i class="fas fa-star-half"></i>
+        {% endif %}
+
+    <div class="container">
+         <a href="{% url 'webapp:review_create' product.pk %}" class="btn btn-success">Leave feedback</a>
+    </div>
+    <div class="container">
+        <h3>Reviews:</h3>
+            {% for i in product.review_product.all %}
+                 <p>Author: <a href="{% url 'accounts:detail' i.author.pk %}">{{ i.author }}</a></p>
+                 <p>Email: {{ i.author.email }}</p>
+                 <p>Text review: {{ i.review_text }}</p>
+                 <p>{% for i in i.get_range %}
+                     <i class="fas fa-star"></i>
+                     {% endfor %}
+                 </p>
+                <a href="{% url 'webapp:review_update' i.pk %}">Edit</a>
+                <a href="{% url 'webapp:review_delete' i.pk product.id %}">Delete</a>
+            {% endfor %}
+    </div>
+{% endblock %}

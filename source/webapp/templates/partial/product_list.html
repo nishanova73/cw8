@@ -1,0 +1,12 @@
+<h2>Products</h2>
+{% for product in products %}
+        <div>
+            <a href="{% url 'webapp:product_view' product.pk %}">
+                {{ product.name }}{{ project.category }}</a>
+                <a href="{% url 'webapp:product_update' product.pk %}">Update</a>
+                <a href="{% url 'webapp:product_delete' product.pk %}">Delete</a>
+        </div>
+{% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}

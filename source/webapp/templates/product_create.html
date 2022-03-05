@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}creating product{% endblock %}
+
+{% block content %}
+    <div class = 'block1'>
+<h1>Create product</h1>
+<form method="post">
+    {% include "partial/form.html" with button_text="Create" %}
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <h2>Enter the product's name {{ product.name }}</h2>
+        {% include 'partial/form.html' with button_text="Delete" %}
+    </form>
+    <a href="{% url 'webapp:product_view' product.pk %}">No</a>
+{% endblock %}
